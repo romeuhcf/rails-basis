@@ -7,3 +7,9 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+desc "Runs JEST js test suite"
+task "jest" do
+  system "yarn test 2>&1"
+  exit $?.success? ? 0 : 1
+end

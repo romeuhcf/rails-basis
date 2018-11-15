@@ -60,6 +60,9 @@ group :development do
   gem 'guard-rubocop'
   gem 'rspec-rails'
   gem 'simplecov', require: false
+  gem 'overcommit'
+  gem 'brakeman'
+  gem 'bundler-audit'
 end
 
 
