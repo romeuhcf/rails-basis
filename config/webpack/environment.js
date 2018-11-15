@@ -7,8 +7,8 @@ environment.plugins.append('html',
 new HtmlWebpackPlugin({
   inject: 'body',
   alwaysWriteToDisk: true,
-  filename: 'index.html',
-  template: resolve('public', 'index.html')
+  filename: '../index.html',
+  template: resolve('public', '_index.html')
 }))
 
 environment.plugins.append('hardisk', new HtmlWebpackHarddiskPlugin())
