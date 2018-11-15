@@ -2,7 +2,10 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "html-webpack-harddisk-plugin": "^1.0.1",
-    "html-webpack-plugin": "^3.2.0"
+    "html-webpack-plugin": "^3.2.0",
+    "vue": "^2.5.17",
+    "vue-loader": "14.2.2",
+    "vue-template-compiler": "^2.5.17"
   },
   "devDependencies": {
     "jest": "^23.6.0",

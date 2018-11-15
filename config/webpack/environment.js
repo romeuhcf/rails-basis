@@ -1,4 +1,5 @@
 const { environment, config } = require('@rails/webpacker')
+const vue =  require('./loaders/vue')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const { resolve } = require('path')
@@ -13,4 +14,5 @@ new HtmlWebpackPlugin({
 
 environment.plugins.append('hardisk', new HtmlWebpackHarddiskPlugin())
 
+environment.loaders.append('vue', vue)
 module.exports = environment
