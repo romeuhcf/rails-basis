@@ -58,6 +58,8 @@ group :development do
   gem 'guard-railsbp'
   gem 'guard-fasterer'
   gem 'guard-rubocop'
+  gem 'rspec-rails'
+  gem 'simplecov', require: false
 end
 
 
