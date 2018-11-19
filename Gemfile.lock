@@ -359,7 +359,7 @@ DEPENDENCIES
   rspec-rails
   simplecov
   spring
-  spring-watcher-listen (~> 2.0.0)
+  spring-watcher-listen (~> 2.0.1)
   sqlite3
   tzinfo-data
   webpacker
