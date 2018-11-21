@@ -23,6 +23,7 @@ PreCommit:
     enabled: true
   Reek:
     enabled: true
+    flags: ['--single-line', '--no-color', '--force-exclusion']
   RailsBestPractices:
     enabled: true
   Brakeman:
