@@ -5,29 +5,35 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    buttons: [{a: 1}, {a: 2}]
+    sensors: []
   },
   getters: {
-    allButtons(state){
-      return state.buttons;
-    }
+    allSensors(state){
+      return state.sensors;
+    },
   },
   mutations: { //setters but not async
-    addButton(state, title){
-      state.buttons.push({a: title})
+    onSensorCreated(state, sensor){
+      state.sensors.push(sensor)
+    },
+    onSensorUpdated(state, sensor){
+      var idx = state.sensors.findIndex(s => s.id == sensor.id);
+      if (idx >= 0){
+        Vue.set(state.sensors, idx, sensor)
+      }
+    },
+    onSensorDestroyed(state, sensor){
+      var idx = state.sensors.findIndex(s => s.id == sensor.id);
+      if (idx >= 0){
+        state.sensors.splice(idx, 1)
+      }
     }
+
   },
   actions: {
-    //addButton(context, title) {
-    // context.commit('addButton', title);
-    //},
-    fetchButtons(context) {},
-    addButton({commit}, title) {
-      //      axios.post('/button', {title})
-      // .then(function() {
-          commit('addButton', title);
-      // })
-      //  .catch(function(e) { console.log(e) })
-    }
+    fetchSensors(context) {
+      axios.get('/sensors')
+        .then(ret => ret.data.forEach(s => this.commit('onSensorCreated', s)))
+    },
   }
 });

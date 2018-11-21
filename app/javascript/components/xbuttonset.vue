@@ -1,7 +1,6 @@
 <template>
   <div>
-    <button @click="addButton" >+</button>
-    <XButton v-for="button in buttons" :key="button.a" :button="button"></XButton>
+    <XButton v-for="sensor in sensors" :key="sensor.title" :sensor="sensor"></XButton>
   </div>
 </template>
 
@@ -16,21 +15,19 @@ export default {
   },
   computed: {
     ...mapGetters({
-      buttons: "allButtons"
+      sensors: "allSensors"
     })
   },
   methods: {
-    addButton() {
+    addSensor() {
       var value = prompt('title');
-      this.$store.dispatch('addButton', value);
-      //        ButtonManager.addButton({title: value})
+      this.$store.commit('addSensor', {title: value});
     }
   },
   created () {
-    this.$store.dispatch('fetchButtons')
-    const received = data => this.$store.dispatch('onButtonCreated', data)
-    this._channel = this.$cable.subscriptions.create({ channel: "ButtonsChannel" }, { received: received })
-
+    this.$store.dispatch('fetchSensors')
+    const received = data => this.$store.commit(data.event, data.sensor)
+    this._channel = this.$cable.subscriptions.create({ channel: "SensorsChannel" }, { received: received })
   },
   components: {
     XButton

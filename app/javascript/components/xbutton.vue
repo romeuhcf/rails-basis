@@ -1,10 +1,9 @@
 <template>
-  <div>button {{button.a}}</div>
+  <div>button {{sensor.title}}</div>
 </template>
 
 <script>
-console.log('importing button')  
 export default {
-    props: ['button']
-  }
+  props: ['sensor']
+}
 </script>
