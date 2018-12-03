@@ -14,6 +14,7 @@
     </span>
     <span class="updated_at">{{moment(sensor.updated_at).fromNow()}}</span>
     <span class="value">{{sensor.value }}</span>
+    <span class="message">{{sensor.message}}</span>
 
   </div>
 </template>
@@ -57,7 +58,7 @@ export default {
     isOld: function(){
       this.ticker;
       var sensorBirth = this.moment(this.sensor.updated_at);
-      var oldBirth = this.moment().subtract(30, 'seconds');
+      var oldBirth = this.moment().subtract(600, 'seconds');
       
       return sensorBirth < oldBirth;
     },
@@ -148,5 +149,9 @@ div {
 .snoozed {
   background-color:#eee;
      background-image: linear-gradient(rgb(255,255,255), rgb(240, 240, 255));
+}
+
+.message{
+  font-style: italic;
 }
 </style>

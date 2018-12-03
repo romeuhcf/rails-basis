@@ -16,7 +16,7 @@ class SensorsController < ApplicationController
   protected
     def permitted_params
       params.require(:sensor)
-        .permit(:source, :title, :value, :tags,
+        .permit(:source, :title, :value, :tags, :message,
                 :ephemeral, :status, details: {})
     end
 end
