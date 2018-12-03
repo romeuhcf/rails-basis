@@ -20,7 +20,7 @@ class Sensor < ApplicationRecord
                       status: params[:status],
                       ephemeral: params[:ephemeral],
                       source: source,
-                      message: params[:pessage],
+                      message: params[:message],
                       title: title, updated_at: Time.zone.now)
     end
   end
