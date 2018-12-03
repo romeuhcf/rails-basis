@@ -25,7 +25,8 @@ class Sensor < ApplicationRecord
     end
   end
 
-  def snooze(minutes = 10)
+  def snooze(minutes = nil)
+    minutes ||= 15 + rand(5)
     self.update!(snoozed_until: Time.now + minutes.minutes)
   end
 

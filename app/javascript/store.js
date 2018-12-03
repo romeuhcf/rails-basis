@@ -11,6 +11,9 @@ export default new Vuex.Store({
     allSensors(state){
       return state.sensors;
     },
+    problematicSensors(state){
+      return state.sensors.filter(sensor => sensor.status != 'success')
+    }
   },
   mutations: { //setters but not async
     onSensorCreated(state, sensor){

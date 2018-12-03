@@ -2,8 +2,13 @@
   <div>
     <button v-if="display == 'block'" @click="display = 'inline-block'" >Grid</button>
     <button v-else @click="display = 'block' ">Lista</button>
+
+
+    <button v-if="badOnly" @click="badOnly= false" >Todos</button>
+    <button v-if="!badOnly" @click="badOnly= true" >Problemas</button>
     <hr/>
-    <XButton v-for="sensor in sensors" :key="sensor.id" :sensor="sensor" :display="display"></XButton>
+    <XButton v-if="badOnly" v-for="sensor in badSensors" :key="'B' + sensor.id" :sensor="sensor" :display="display"></XButton>
+    <XButton v-if="!badOnly" v-for="sensor in sensors" :key="sensor.id" :sensor="sensor" :display="display"></XButton>
   </div>
 </template>
 
@@ -14,12 +19,14 @@ import {mapGetters} from 'vuex'
 export default {
   data: function(){
     return {
-      display: 'block'
+      display: 'block',
+      badOnly: false,
     }
   },
   computed: {
     ...mapGetters({
-      sensors: "allSensors"
+      sensors: "allSensors",
+      badSensors: "problematicSensors"
     })
   },
   methods: {
