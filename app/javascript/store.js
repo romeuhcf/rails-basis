@@ -1,7 +1,18 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
+import moment from 'moment';
 Vue.use(Vuex);
+
+
+function snoozable(sensor){
+  if (sensor.status == 'success') {return false}
+  if (!sensor.snoozed_until){ return false };
+  var snoozed_until = moment(sensor.snoozed_until);
+  var now = moment()
+  console.log(snoozed_until, now, snoozed_until > now)
+  return snoozed_until < now;
+}
 
 export default new Vuex.Store({
   state: {
@@ -12,7 +23,7 @@ export default new Vuex.Store({
       return state.sensors;
     },
     problematicSensors(state){
-      return state.sensors.filter(sensor => sensor.status != 'success')
+      return state.sensors.filter(sensor => snoozable(sensor) )
     }
   },
   mutations: { //setters but not async

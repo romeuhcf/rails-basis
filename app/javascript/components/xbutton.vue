@@ -44,13 +44,10 @@ export default {
       if (this.dead()) { styles.push('dead') }
       if (this.snoozed()) { styles.push('snoozed') }
 
-      console.log(styles)
       return styles
     }, 
     value: function(){
       this.sensor.value;
-      
-
     },
     status:function(){
       return this.sensor.style;
