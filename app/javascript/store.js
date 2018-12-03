@@ -7,7 +7,7 @@ Vue.use(Vuex);
 
 function snoozable(sensor){
   if (sensor.status == 'success') {return false}
-  if (!sensor.snoozed_until){ return false };
+  if (!sensor.snoozed_until){ return true };
   var snoozed_until = moment(sensor.snoozed_until);
   var now = moment()
   console.log(snoozed_until, now, snoozed_until > now)
