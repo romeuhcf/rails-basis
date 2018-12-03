@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/vue-fontawesome": "^0.1.2",
     "@rails/webpacker": "^4.0.0-pre.3",
     "actioncable": "^5.2.1-1",
     "axios": "^0.18.0",
@@ -21,7 +24,7 @@
     "vue-jest": "^3.0.1",
     "webpack-dev-server": "^3.1.10"
   },
-    "scripts": {
+  "scripts": {
     "test": "jest"
   },
   "jest": {
