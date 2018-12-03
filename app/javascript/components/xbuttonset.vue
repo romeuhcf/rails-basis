@@ -1,6 +1,9 @@
 <template>
   <div>
-    <XButton v-for="sensor in sensors" :key="sensor.title" :sensor="sensor"></XButton>
+    <button v-if="display == 'block'" @click="display = 'inline-block'" >Grid</button>
+    <button v-else @click="display = 'block' ">Lista</button>
+    <hr/>
+    <XButton v-for="sensor in sensors" :key="sensor.id" :sensor="sensor" :display="display"></XButton>
   </div>
 </template>
 
@@ -11,6 +14,7 @@ import {mapGetters} from 'vuex'
 export default {
   data: function(){
     return {
+      display: 'block'
     }
   },
   computed: {
@@ -22,7 +26,8 @@ export default {
     addSensor() {
       var value = prompt('title');
       this.$store.commit('addSensor', {title: value});
-    }
+    },
+    
   },
   created () {
     this.$store.dispatch('fetchSensors')

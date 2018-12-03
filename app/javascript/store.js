@@ -35,5 +35,8 @@ export default new Vuex.Store({
       axios.get('/sensors')
         .then(ret => ret.data.forEach(s => this.commit('onSensorCreated', s)))
     },
+    snooze(context, sensorId) {
+      axios.post(`/sensors/${sensorId}/snooze` );
+    },
   }
 });

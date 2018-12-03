@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_171710) do
+ActiveRecord::Schema.define(version: 2018_11_27_010249) do
 
   create_table "sensors", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "key"
+    t.string "source"
+    t.float "value"
+    t.string "status"
+    t.boolean "ephemeral", default: false
+    t.text "details"
+    t.datetime "snoozed_until"
   end
 
 end

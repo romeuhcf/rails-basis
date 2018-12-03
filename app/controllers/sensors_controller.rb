@@ -4,4 +4,19 @@ class SensorsController < ApplicationController
     sensors = Sensor.all
     render json: sensors
   end
+
+  def create
+    Sensor.receive(permitted_params)
+  end
+
+  def snooze
+    Sensor.find(params[:id]).snooze
+  end
+
+  protected
+    def permitted_params
+      params.require(:sensor)
+        .permit(:source, :title, :value, :tags,
+                :ephemeral, :status, details: {})
+    end
 end
