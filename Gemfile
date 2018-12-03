@@ -63,6 +63,11 @@ group :development do
   gem 'overcommit'
   gem 'brakeman'
   gem 'bundler-audit'
+  gem 'capistrano'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundle'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
 end
 
 
