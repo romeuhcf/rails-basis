@@ -16,7 +16,7 @@ gem 'puma', '~> 3.11'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'webpacker'
+gem 'webpacker', '>= 4.0.x'
 gem 'redis'
 
 # Use ActiveStorage variant
